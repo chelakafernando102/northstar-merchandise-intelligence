@@ -1,0 +1,13 @@
+{
+  "seed": 260812,
+  "as_of": "2026-08-12",
+  "tables": {
+    "products": 2255,
+    "stores": 10,
+    "vendors": 20,
+    "sales": 120000,
+    "inventory": 22550,
+    "purchase_orders": 6000,
+    "markdowns": 1200
+  }
+}

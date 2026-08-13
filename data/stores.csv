@@ -1,0 +1,11 @@
+Store_ID,Store_Name,City,Province,Region,Store_Size,Opening_Date,Store_Format,Sales_Tier,Inventory_Capacity,Sales_Multiplier,Inventory_Multiplier
+S001,Charlottetown Flagship,Charlottetown,PE,Atlantic,16200,2020-07-01,Standard,B,395800,0.72,0.92
+S002,Halifax Harbour,Halifax,NS,Atlantic,20800,2021-10-01,Gallery,A,422200,1.18,1.03
+S003,Moncton Market,Moncton,NB,Atlantic,17400,2011-09-01,Standard,B,434200,0.84,1.08
+S004,Fredericton House,Fredericton,NB,Atlantic,15600,2022-12-01,Standard,C,405400,0.66,0.96
+S005,Dartmouth Crossing,Dartmouth,NS,Atlantic,18100,2015-12-01,Standard,B,415000,0.91,1.0
+S006,Toronto Atelier,Toronto,ON,Central,23800,2021-09-01,Flagship,A,429400,1.48,1.06
+S007,Ottawa Collection,Ottawa,ON,Central,20400,2020-06-01,Gallery,A,417400,1.14,1.01
+S008,Mississauga Studio,Mississauga,ON,Central,21800,2011-04-01,Gallery,A,424600,1.28,1.04
+S009,London Gallery,London,ON,Central,17800,2022-06-01,Standard,B,410200,0.88,0.98
+S010,Kingston Edit,Kingston,ON,Central,17000,2009-01-01,Standard,B,403000,0.8,0.95

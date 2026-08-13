@@ -4,6 +4,8 @@
 
 **EXCEL - SQL - PYTHON - MERCHANDISING ANALYTICS - INTERACTIVE WEB DASHBOARD**
 
+**[Open the public interactive dashboard](https://chelakafernando102.github.io/northstar-merchandise-intelligence/)**
+
 Northstar Home & Living is a fictional 10-store Canadian home and lifestyle retailer. This repository contains a complete merchandise decision-support system for assortment planning, open-to-buy, initial allocation, replenishment, inventory transfers, markdowns, seasonal planning, and vendor performance.
 
 The project is designed to answer one practical question: **what should the merchandiser buy, where should it be placed, when should it be replenished, and when should it exit?**
@@ -92,6 +94,7 @@ powerbi/          Power BI theme, DAX measure pack and implementation guide
 reports/          Four-page weekly merchandise trading report
 documentation/    Data dictionary and project documentation
 app/              Interactive six-view portfolio dashboard
+docs/             Production-ready GitHub Pages build
 public/downloads/ Downloadable project artifacts used by the hosted site
 ```
 
@@ -109,6 +112,12 @@ Validate the production build:
 ```bash
 npm run build
 node --test tests/rendered-html.test.mjs
+```
+
+Build the public GitHub Pages version:
+
+```bash
+npm run pages:test
 ```
 
 Regenerate and validate the synthetic data:

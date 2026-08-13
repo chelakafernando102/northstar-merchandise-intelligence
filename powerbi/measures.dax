@@ -1,0 +1,64 @@
+-- Core Northstar merchandising measures
+
+Net Sales :=
+SUM ( fact_sales[Net_Sales] )
+
+Gross Margin $ :=
+SUM ( fact_sales[Gross_Margin] )
+
+Gross Margin % :=
+DIVIDE ( [Gross Margin $], [Net Sales] )
+
+Units Sold :=
+SUM ( fact_sales[Units_Sold] )
+
+Ending Inventory Units :=
+SUM ( fact_inventory[Ending_Inventory] )
+
+Inventory Value :=
+SUM ( fact_inventory[Inventory_Value] )
+
+Sell-Through % :=
+DIVIDE ( [Units Sold], [Units Sold] + [Ending Inventory Units] )
+
+Average Weekly Units :=
+DIVIDE ( [Units Sold], DISTINCTCOUNT ( dim_date[YearWeek] ) )
+
+Weeks of Supply :=
+DIVIDE ( [Ending Inventory Units], [Average Weekly Units] )
+
+Average Unit Retail :=
+DIVIDE ( [Net Sales], [Units Sold] )
+
+Markdown Penetration % :=
+DIVIDE ( SUM ( fact_sales[Discount] ), SUM ( fact_sales[Gross_Sales] ) )
+
+Sales per SKU :=
+DIVIDE ( [Net Sales], DISTINCTCOUNT ( dim_product[SKU_ID] ) )
+
+GMROI :=
+DIVIDE ( [Gross Margin $], [Inventory Value] )
+
+Sales vs Plan % :=
+DIVIDE ( [Net Sales] - [Sales Plan], [Sales Plan] )
+
+SKU Action :=
+VAR SellThrough = [Sell-Through %]
+VAR WOS = [Weeks of Supply]
+RETURN
+    SWITCH (
+        TRUE (),
+        SellThrough < 0.22, "EXIT",
+        SellThrough > 0.72 && WOS < 3, "REORDER",
+        SellThrough < 0.34 && WOS > 8, "MARKDOWN",
+        SellThrough < 0.46 && WOS > 6.5, "TRANSFER",
+        "MAINTAIN"
+    )
+
+Vendor Score :=
+VAR MarginScore = MIN ( 1, DIVIDE ( [Gross Margin %], 0.56 ) )
+VAR SellThroughScore = MIN ( 1, DIVIDE ( [Sell-Through %], 0.66 ) )
+VAR OnTimeScore = AVERAGE ( dim_vendor[On_Time_Delivery_Percentage] )
+VAR QualityScore = 1 - DIVIDE ( AVERAGE ( dim_vendor[Defect_Rate] ), 0.08 )
+RETURN
+    ROUND ( 100 * ( 0.30 * MarginScore + 0.30 * SellThroughScore + 0.30 * OnTimeScore + 0.10 * QualityScore ), 0 )

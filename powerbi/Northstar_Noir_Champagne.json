@@ -1,0 +1,35 @@
+{
+  "name": "Northstar - Noir & Champagne",
+  "dataColors": ["#C6A15B", "#D8BC7A", "#6E6E73", "#949197", "#8F713B", "#7FA58A", "#B86B6B"],
+  "background": "#0D0D0F",
+  "foreground": "#F3F0E9",
+  "tableAccent": "#C6A15B",
+  "good": "#7FA58A",
+  "neutral": "#AAA7A0",
+  "bad": "#B86B6B",
+  "maximum": "#D8BC7A",
+  "center": "#747178",
+  "minimum": "#1C1C20",
+  "textClasses": {
+    "callout": { "fontFace": "Aptos Display", "fontSize": 28, "color": "#F3F0E9" },
+    "title": { "fontFace": "Aptos Display", "fontSize": 14, "color": "#F3F0E9" },
+    "header": { "fontFace": "Aptos", "fontSize": 11, "color": "#C6A15B" },
+    "label": { "fontFace": "Aptos", "fontSize": 10, "color": "#AAA7A0" }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#151518" } }, "transparency": 0 }],
+        "border": [{ "show": true, "color": { "solid": { "color": "#303034" } }, "radius": 7 }],
+        "title": [{ "show": true, "fontFamily": "Aptos", "fontSize": 11, "fontColor": { "solid": { "color": "#F3F0E9" } } }],
+        "visualHeader": [{ "show": false }]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#0D0D0F" } }, "transparency": 0 }],
+        "outspace": [{ "color": { "solid": { "color": "#0D0D0F" } } }]
+      }
+    }
+  }
+}
